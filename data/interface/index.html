@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <title>Sound Meter (Noise & Decibel)</title>
+		<meta http-equiv="content-language" content="en">
     <link type="text/css" rel="stylesheet" href="index.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div class="toolbar">
@@ -45,6 +47,8 @@
             <td class="data">Duration</td>
             <td class="data">Update interval (ms)</td>
             <td class="data">Calibration</td>
+            <td class="data">ScriptProcessor</td>
+            <td class="data">AudioWorklet</td>
           </tr>
         </thead>
         <tbody>
@@ -55,28 +59,49 @@
             <td class="data" id="average">0.00</td>
             <td class="data" id="duration">00:00:00</td>
             <td class="input">
-              <input type="number" id="interval" min=100 max=1000></input>
+              <input type="number" id="interval" min=1 max=10000>
             </td>
             <td class="input">
-              <input type="number" id="calibration" min=1 max=50></input>
+              <input type="number" id="calibration" min=0 max=120>
+            </td>
+            <td class="input">
+              <label for="scriptprocessor" title="Use ScriptProcessor interface of the Web Audio API (old API)">
+                <input type="radio" name="engine" id="scriptprocessor">
+              </label>
+            </td>
+            <td class="input">
+              <label for="audioworklet" title="Use AudioWorklet interface of the Web Audio API (new API)">
+                <input type="radio" name="engine" id="audioworklet">
+              </label>
             </td>
           </tr>
           <tr>
             <td id="db" class="data">0.00</td>
-            <td id="level" colspan=5>0.00dB</td>
+            <td id="level" colspan=7>0.00dB</td>
             <td id="noise" class="data">0.00</td>
           </tr>
           <tr>
-            <td class="canvas" colspan=7>
+            <td class="canvas" colspan=9>
               <canvas></canvas>
+            </td>
+          </tr>
+          <tr>
+            <td class="sensitivity-factor" colspan=9>
+              <div>
+                <label for="volume">Sensitivity</label>
+                <input type="range" id="sensitivity-factor" min="1" max="10" value=1>
+                <output></output>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    <!-- -->
     <script type="text/javascript" src="vendor/chart.js"></script>
     <script type="text/javascript" src="resource/data.js"></script>
     <script type="text/javascript" src="resource/options.js"></script>
+    <!-- -->
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
