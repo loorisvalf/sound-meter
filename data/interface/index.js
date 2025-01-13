@@ -360,7 +360,7 @@ var config = {
                 config.app.soundmeter.api.audioworklet.instance.port.onmessage = config.app.soundmeter.api.audioworklet.ping;
                 config.app.soundmeter.render();
               } catch (e) {
-                
+                /*  */
               }
             } else {
               config.app.elements.progress.textContent = "An unexpected error occurred!";

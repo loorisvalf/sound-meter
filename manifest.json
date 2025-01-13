@@ -1,11 +1,14 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "manifest_version": 3,
   "offline_enabled": true,
   "name": "Sound Meter (Noise & Decibel)",
-  "permissions": ["storage", "contextMenus"],
   "homepage_url": "https://mybrowseraddon.com/sound-meter.html",
   "description": "Measure the surrounding sound (dB) and noise with your computer's microphone!",
+  "permissions": [
+    "storage", 
+    "contextMenus"
+  ],
   "commands": {
     "_execute_action": {}
   },

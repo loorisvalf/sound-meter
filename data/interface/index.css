@@ -8,29 +8,30 @@ html {
 body {
   border: 0;
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   overflow: hidden;
   text-align: center;
   padding: 0 42px 0 10px;
-  font-family: arial,sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 table thead .button, table thead .data {
-  color: #777;
+  color: #333;
   padding: 10px 0;
-  font-size: 11px;
+  font-size: 13px;
   user-select: none;
   text-align: center;
   background-color: transparent;
-  font-family: arial,sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 table tbody .button, table tbody .data {
-  color: #555;
-  padding: 7px 0;
-  font-size: 12px;
+  color: #333;
+  padding: 5px;
+  font-size: 14px;
   user-select: none;
   font-family: monospace;
+  box-sizing: border-box;
   background-color: transparent;
   border: solid 1px rgba(0,0,0,0.1);
 }
@@ -41,7 +42,7 @@ table tbody .data {
 
 table tbody .button {
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   transition: 300ms ease all;
 }
 
@@ -50,15 +51,15 @@ table tbody .button:hover {
 }
 
 table tbody .input {
-  color: #555;
+  color: #333;
   height: 32px;
-  font-size: 12px;
+  font-size: 13px;
   min-height: 32px;
   max-height: 32px;
   line-height: 32px;
   text-align: center;
-  font-family: arial,sans-serif;
   background-color: transparent;
+  font-family: system-ui, sans-serif;
   border: solid 1px rgb(33, 150, 243);
 }
 
@@ -66,9 +67,9 @@ table tbody .input input {
   border: 0;
   margin: 0;
   outline: 0;
-  padding: 0;
-  color: #555;
-  font-size: 11px;
+  color: #333;
+  padding: 0 5px;
+  font-size: 12px;
   font-weight: 600;
   background: #fff;
   text-align: center;
@@ -103,16 +104,20 @@ table tbody .sensitivity-factor div {
 
 table tbody .sensitivity-factor div label {
   margin: 0;
-  color: #555;
-  font-size: 11px;
+  color: #333;
+  height: 16px;
+  padding: 0 5px;
+  font-size: 12px;
   overflow: hidden;
   font-weight: 600;
   user-select: none;
+  line-height: 16px;
   text-align: center;
   white-space: nowrap;
+  box-sizing: border-box;
   vertical-align: middle;
   text-overflow: ellipsis;
-  font-family: arial,sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 table tbody .sensitivity-factor div input[type='range'] {
@@ -124,11 +129,14 @@ table tbody .sensitivity-factor div input[type='range'] {
 
 table tbody .sensitivity-factor div output {
   margin: 0;
+  color: #333;
   width: 48px;
-  color: #555;
-  font-size: 12px;
+  height: 16px;
+  padding: 0 5px;
+  font-size: 13px;
   font-weight: 600;
   user-select: none;
+  line-height: 16px;
   vertical-align: middle;
   font-family: monospace;
 }
@@ -163,7 +171,7 @@ table tbody .input input[type='number'] {
   border: 0;
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .content canvas {
@@ -216,7 +224,8 @@ table tbody .input input[type='number'] {
 }
 
 .toolbar table tr td svg {
-  fill: #777;
+  fill: #555;
+  margin-top: -1px;
   pointer-events: none;
   vertical-align: middle;
 }
@@ -232,12 +241,13 @@ table tbody .input input[type='number'] {
 }
 
 #level {
-  color: #555;
+  color: #333;
   padding: 20px 0;
   font-size: 28px;
   user-select: none;
   text-align: center;
   font-weight: normal;
+  letter-spacing: 1px;
   font-family: monospace;
   background-color: transparent;
 }
@@ -256,7 +266,7 @@ table tbody .input input[type='number'] {
     display: none !important;
   }
   table tbody .button, table tbody .data {
-    padding: 10px 0;
+    padding: 10px 5px;
   }
   .loader p {
     font-size: 14px;
