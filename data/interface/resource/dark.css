@@ -12,6 +12,10 @@ html[theme='dark'] table tbody .input input {
   background-color: #1e1e1e;
 }
 
+html[theme='dark'] .loader {
+  background-color: rgba(0 0 0 / 80%);
+}
+
 html[theme='dark'] .toolbar table tr td:hover {
   background-color: rgba(255 255 255 / 10%);
 }

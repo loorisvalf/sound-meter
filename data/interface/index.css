@@ -194,7 +194,7 @@ table tbody .input input[type='number'] {
   margin: 0;
   width: 100%;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   position: fixed;
   text-align: center;
   font-weight: normal;
@@ -285,10 +285,7 @@ html[context="popup"] .content canvas {
   max-height: 400px;
 }
 
-html[context="webapp"] .toolbar {
+html[context="webapp"] .toolbar #support,
+html[context="webapp"] .toolbar #donation {
   display: none;
-}
-
-html[context="webapp"] .loader {
-  width: "100%";
 }
