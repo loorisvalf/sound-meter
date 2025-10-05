@@ -77,6 +77,7 @@ var config = {
     }
   },
   "load": function () {
+    config.app.elements.theme = document.getElementById("theme");
     config.app.elements.canvas = document.querySelector("canvas");
     config.app.elements.loader = document.querySelector(".loader");
     config.app.elements.reload = document.getElementById("reload");
@@ -136,6 +137,16 @@ var config = {
       config.app.soundmeter.render();
     });
     /*  */
+    config.app.elements.theme.addEventListener("click", function () {
+      let attribute = document.documentElement.getAttribute("theme");
+      attribute = attribute === "dark" ? "light" : "dark";
+      /*  */
+      document.documentElement.setAttribute("theme", attribute);
+      config.app.update.chart.color(OPTIONS, attribute);
+      config.storage.write("theme", attribute);
+      window.soundchart.update();
+    });
+    /*  */
     config.app.elements.range.addEventListener("input", function (e) {
       config.app.sensitivity.factor = Number(e.target.value);
       e.target.nextElementSibling.value = (100 / config.app.sensitivity.factor).toFixed(1) + '%';
@@ -177,7 +188,31 @@ var config = {
       get audioworklet () {return config.storage.read("audioworklet") !== undefined ? config.storage.read("audioworklet") : true},
       get scriptprocessor () {return config.storage.read("scriptprocessor") !== undefined ? config.storage.read("scriptprocessor") : false}
     },
+    "update": {
+      "chart": {
+        "color": function (e, theme) {
+          const color = theme === "light" ? "#333333" : "#ebebeb";
+          const rgb = theme === "light" ? "rgb(0 0 0 / 10%)" : "rgb(255 255 255 / 10%)";
+          /*  */
+          const _update = function (obj) {
+            for (const key in obj) {
+              if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                if (key === "color" && typeof obj[key] === "string") {
+                  obj[key] = obj[key].startsWith("rgb") ? rgb : color;
+                } else if (typeof obj[key] === "object" && obj[key] !== null) {
+                  _update(obj[key]);
+                }
+              }
+            }
+          }
+          /*  */
+          _update(e);
+        }
+      }
+    },
     "start": function () {
+      const theme = config.storage.read("theme") !== undefined ? config.storage.read("theme") : "light";
+      /*  */
       if (config.app.analyser) delete config.app.analyser;
       if (config.app.microphone) delete config.app.microphone;
       if (config.app.audiocontext) delete config.app.audiocontext;
@@ -186,6 +221,8 @@ var config = {
       if (config.app.soundmeter.api.audioworklet.instance) delete config.app.soundmeter.api.audioworklet.instance;
       if (config.app.soundmeter.api.scriptprocessor.instance) delete config.app.soundmeter.api.scriptprocessor.instance;
       /*  */
+      config.app.update.chart.color(OPTIONS, theme);
+      document.documentElement.setAttribute("theme", theme);
       config.app.elements.interval.value = config.app.interval.value;
       config.app.elements.calibration.value = config.app.calibration.value;
       config.app.elements.audioworklet.checked = config.app.engine.audioworklet;
@@ -284,11 +321,11 @@ var config = {
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[1].data.push(config.app.calibration.value);
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[2].data.push(0);
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[3].data.push(35);
-        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[4].data.push(36);
+        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[4].data.push(36.1);
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[5].data.push(65);
-        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[6].data.push(66);
+        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[6].data.push(66.1);
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[7].data.push(100);
-        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[8].data.push(101);
+        for (let i = 0; i < 30; i++) config.app.variable.data.datasets[8].data.push(101.1);
         for (let i = 0; i < 30; i++) config.app.variable.data.datasets[9].data.push(120);
         /*  */
         window.soundchart = new Chart(config.app.elements.context, config.app.variable);

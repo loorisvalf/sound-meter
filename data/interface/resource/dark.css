@@ -1,0 +1,34 @@
+html[theme='dark'], 
+html[theme='dark'] body {
+  color: #ebebeb;
+  color-scheme: dark;
+  background-color: #1e1e1e;
+}
+
+html[theme='dark'] table tbody .data,
+html[theme='dark'] table tbody .button,
+html[theme='dark'] table tbody .input input {
+  color: #ebebeb;
+  background-color: #1e1e1e;
+}
+
+html[theme='dark'] .toolbar table tr td:hover {
+  background-color: rgba(255 255 255 / 10%);
+}
+
+html[theme='dark'] #level,
+html[theme='dark'] table thead .data,
+html[theme='dark'] table thead .button,
+html[theme='dark'] table tbody .sensitivity-factor div label,
+html[theme='dark'] table tbody .sensitivity-factor div output {
+  color: #ebebeb;
+}
+
+html[theme='dark'] table tbody .data,
+html[theme='dark'] table tbody .button {
+  border-color: rgb(255 255 255 / 25%);
+}
+
+html[theme='dark'] .toolbar table tr td svg {
+  fill: #ebebeb;
+}
